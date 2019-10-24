@@ -18,13 +18,15 @@ PROVIDES = "virtual/gpudriver"
 
 BRANCH = "ti-img-sgx/${PV}/k4.19"
 
-SRC_URI = "git://git.ti.com/graphics/omap5-sgx-ddk-linux.git;protocol=git;branch=${BRANCH} \
-    file://0001-km-support-OpenEmbedded-hardfp-toolchain-w-o-gnueabi.patch \
+SRC_URI = "git://github.com/bjornwilliam/ti-omap5-sgx-ddk-linux.git;protocol=http;branch=${BRANCH} \
 "
+#SRC_URI = "git://git.ti.com/graphics/omap5-sgx-ddk-linux.git;protocol=git;branch=${BRANCH} \
+#    file://0001-km-support-OpenEmbedded-hardfp-toolchain-w-o-gnueabi.patch \
+#"
 
 S = "${WORKDIR}/git"
 
-SRCREV = "4519ed3b83d1d72207ddc2874c7eb5e5a7f20d8d"
+SRCREV = "6938e02ec74cf1a1d3120676389ab100de3f811b"
 
 TARGET_PRODUCT_omap-a15 = "jacinto6evm"
 TARGET_PRODUCT_ti33x = "ti335x"
