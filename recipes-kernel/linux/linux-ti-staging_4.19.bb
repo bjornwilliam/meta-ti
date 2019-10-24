@@ -55,6 +55,13 @@ RDEPENDS_${KERNEL_PACKAGE_NAME}-base_append_j7-evm = " cadence-mhdp-fw"
 
 KERNEL_EXTRA_ARGS += "LOADADDR=${UBOOT_ENTRYPOINT}"
 
+
+
+
+KERNEL_DEVICETREE ?= " \
+    bbb-4dcape50ct.dtb \
+"
+
 S = "${WORKDIR}/git"
 
 BRANCH = "ti-linux-4.19.y"
@@ -69,7 +76,10 @@ PR = "${MACHINE_KERNEL_PR}"
 KERNEL_GIT_URI = "git://git.ti.com/ti-linux-kernel/ti-linux-kernel.git"
 KERNEL_GIT_PROTOCOL = "git"
 SRC_URI += "${KERNEL_GIT_URI};protocol=${KERNEL_GIT_PROTOCOL};branch=${BRANCH} \
-            file://defconfig"
+            file://defconfig \
+	    file://git/arch/arm/boot/dts/am33xxwithsgx.dtsi \
+    	    file://git/arch/arm/boot/dts/bbb-4dcape50ct.dts \
+"
 
 FILES_${KERNEL_PACKAGE_NAME}-devicetree += "/${KERNEL_IMAGEDEST}/*.itb"
 
